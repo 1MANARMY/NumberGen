@@ -7,5 +7,5 @@ def random_number():
         yield random.randint(0,9)
 
 for n in random_number():
-    var = num_list.insert(0, n)
-print ''.join(str(n) for n in num_list)
+    num_list.insert(0, n)
+hash_key = ''.join(str(n) for n in num_list)
