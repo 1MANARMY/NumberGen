@@ -17,20 +17,20 @@ def main(argv):
             #capture a str of txt and issue a hash_key
             hide_text = raw_input("Enter a message: ")
             D[hash_key] = hide_text
-            print D.split('.')
+            print D
             #write to file
-	    json.dump(D, open("file.txt", 'w'))
+	    json.dump(D, open("file.json", 'w'))
 
 	elif opt in ('-p', '--pull'):
 	    search_key = raw_input("Enter a key: ")
 	    #print to screen and pull with key
 		
-            for obj in json.loads(open("file.txt")):
-		print obj
-                h_key = obj['hash_key'].split('.')[0]
-		m_val = obj['hide_text']
-		if search_key == h_key:
-	            print "Your Message: " + m_val
+            with open('file.json') as data_file:
+		data = json.load(data_file)
+		print data
+		#for k,v in data:
+		    #if k == search_key:
+	                #print "Your Message: " + m_val
 	else:
             print 'main.py -m <"message"> -p <key>'
             sys.exit()
