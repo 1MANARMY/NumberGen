@@ -25,9 +25,9 @@ def main(argv):
 	    search_key = raw_input("Enter a key: ")
 	    #print to screen and pull with key
 		
-            with open('file.json') as data_file:
+            with open('file.json', 'r') as data_file:
 		data = json.load(data_file)
-		print data
+		for obj in data:
 		#for k,v in data:
 		    #if k == search_key:
 	                #print "Your Message: " + m_val
