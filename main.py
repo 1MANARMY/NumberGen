@@ -24,13 +24,11 @@ def main(argv):
 	elif opt in ('-p', '--pull'):
 	    search_key = raw_input("Enter a key: ")
 	    #print to screen and pull with key
-		
-            with open('file.json') as data_file:
+            with open('file.json', 'r') as data_file:
 		data = json.load(data_file)
-		print data
-		#for k,v in data:
-		    #if k == search_key:
-	                #print "Your Message: " + m_val
+		for k,v in data.iteritems():
+		    if k == search_key:
+	                print "Your Message: " + v
 	else:
             print 'main.py -m <"message"> -p <key>'
             sys.exit()
